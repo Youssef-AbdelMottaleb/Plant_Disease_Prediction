@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+    <center>
+        <h1 style="color: green;">
+            Plant Classification
+        </h1>
+
+        <form>
+            <input type="text" 
+                placeholder="var1" 
+                name="plant var 1" />
+            <br /><br />
+
+            <input type="text" 
+                placeholder="var1" 
+                name="plant var 1" />
+            <br /><br />
+
+            <input type="text" 
+                placeholder="var1" 
+                name="plant var 1" />
+            <br /><br />
+            <input type="text" 
+                placeholder="var1" 
+                name="plant var 1" />
+            <br /><br />
+            <!-- file upload -->
+            
+            <h2>Upload image </h2>
+            <input type="file" name="image" id="image" oninput=updateImage()>
+            <img src="./" id="showImage" alt="">
+            <script>
+                
+                const updateImage=()=>{
+                    var fileInput = document.getElementById("image");
+                    var image= fileInput.files[0].name
+                    test=document.getElementById('showImage').src;
+                    console.log(test)
+                    document.getElementById('showImage').src=image
+                    console.log(test)
+                
+                }
+                
+            </script>
+
+
+            <input type="reset" value="Reset" 
+                style="background-color: red; 
+                        color: white" />
+            <input type="button" value="Predict" 
+                style="background-color: green; 
+                        color: white" 
+                        onclick=passTarget()/>
+                        <script>
+                            const passTarget=()=>{
+                                //write your code here 
+                                var predict = "target";
+                            }
+                        </script>
+        </form>
+
+        <h3 style="color: cadetblue;">the plant disease is {{predict}}</h3>
+    </center>
+</body>
+
+{% endblock %}
